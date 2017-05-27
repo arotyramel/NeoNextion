@@ -20,8 +20,8 @@ public:
    * \copydoc INextionWidget::INextionWidget
    */
   INextionNumericalValued(Nextion &nex, uint8_t page, uint8_t component,
-                          const char *name)
-      : INextionWidget(nex, page, component, name)
+                          const char *name,const char *page_name)
+      : INextionWidget(nex, page, component, name, page_name)
   {
   }
 
@@ -30,7 +30,7 @@ public:
    * \return Value
    * \see INextionNumericalValued::setValue
    */
-  uint32_t getValue()
+  int32_t getValue()
   {
     return getNumberProperty("val");
   }
@@ -41,7 +41,7 @@ public:
    * \return True if successful
    * \see INextionNumericalValued::getValue
    */
-  bool setValue(uint32_t value)
+  bool setValue(int32_t value)
   {
     return setNumberProperty("val", value);
   }

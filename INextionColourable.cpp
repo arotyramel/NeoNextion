@@ -6,8 +6,8 @@
  * \copydoc INextionWidget::INextionWidget
  */
 INextionColourable::INextionColourable(Nextion &nex, uint8_t page,
-                                       uint8_t component, const char *name)
-    : INextionWidget(nex, page, component, name)
+                                       uint8_t component, const char *name, const char* page_name)
+    : INextionWidget(nex, page, component, name,page_name)
 {
 }
 

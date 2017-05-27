@@ -6,9 +6,9 @@
  * \copydoc INextionWidget::INextionWidget
  */
 NextionTimer::NextionTimer(Nextion &nex, uint8_t page, uint8_t component,
-                           const char *name)
-    : INextionWidget(nex, page, component, name)
-    , INextionTouchable(nex, page, component, name)
+                           const char *name, const char *page_name)
+    : INextionWidget(nex, page, component, name,page_name)
+    , INextionTouchable(nex, page, component, name,page_name)
 {
 }
 

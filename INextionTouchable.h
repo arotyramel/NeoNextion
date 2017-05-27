@@ -16,14 +16,14 @@ class INextionTouchable : public virtual INextionWidget
 {
 public:
   INextionTouchable(Nextion &nex, uint8_t page, uint8_t component,
-                    const char *name);
-
+                    const char *name, const char *page_name);
+  
   bool processEvent(uint8_t pageID, uint8_t componentID, uint8_t eventType);
 
-  bool attachCallback(NextionCallbackFunctionHandler::NextionFunction cb);
-  bool attachCallback(INextionCallback *obj);
+  bool attachCallback(NextionCallbackFunctionHandler::NextionFunction cb,int id=0);
+  bool attachCallback(INextionCallback *obj,int id=0);
   void detachCallback();
-
+  int id_;
 private:
   INextionCallback *m_callback;
 };

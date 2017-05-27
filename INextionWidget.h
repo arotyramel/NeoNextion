@@ -16,13 +16,13 @@ class INextionWidget
 {
 public:
   INextionWidget(Nextion &nex, uint8_t page, uint8_t component,
-                 const char *name);
+                 const char *name,const char *page_name);
 
   uint8_t getPageID();
   uint8_t getComponentID();
 
-  bool setNumberProperty(char *propertyName, uint32_t value);
-  uint32_t getNumberProperty(char *propertyName);
+  bool setNumberProperty(char *propertyName, int32_t value);
+  int32_t getNumberProperty(char *propertyName);
   bool setStringProperty(char *propertyName, char *value);
   size_t getStringProperty(char *propertyName, char *value, size_t len);
 
@@ -34,6 +34,7 @@ protected:
   uint8_t m_pageID;      //!< ID of page this widget is on
   uint8_t m_componentID; //!< Component ID of this widget
   const char *m_name;    //!< Name of this widget
+  const char *m_page; //!< Name of the page
 };
 
 #endif

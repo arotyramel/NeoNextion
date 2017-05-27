@@ -28,7 +28,7 @@ bool Nextion::init()
   sendCommand("bkcmd=1");
   bool result1 = checkCommandComplete();
 
-  sendCommand("page 0");
+  sendCommand("page 1");
   bool result2 = checkCommandComplete();
 
   return (result1 && result2);
@@ -343,6 +343,8 @@ void Nextion::sendCommand(char *command)
   if (m_flushSerialBeforeTx)
     m_serialPort.flush();
 
+  while(m_serialPort.available()>0)
+    m_serialPort.read();
   m_serialPort.print(command);
   m_serialPort.write(0xFF);
   m_serialPort.write(0xFF);
